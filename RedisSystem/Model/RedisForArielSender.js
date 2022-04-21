@@ -72,6 +72,7 @@ ioClient.on("endCallReport", (msg) => {
         }
         else redisClient.incr(topicName);
     });
+    
     var prodName = "prod-" + callDetailsJson.product;
     redisClient.get(prodName, function (err, key) {
         if (err) return console.log(err);

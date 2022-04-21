@@ -105,16 +105,21 @@ function updateAvg(avg){
     addData(window.chartAvg, "Average", avg, myChartAvgLocation);
 }
 
+
 function updateTotalWaiting(totals){
     removeData(totalWaitingChart, totalWaitingChartLocation);
     addData(window.totalWaitingChart, "Total waiting", totals, totalWaitingChartLocation);
+    
 }
 
 async function updateproductseAndCallTopic(msg){
+   
     product = msg.products;
     topics = msg.topics;
     topicCount = msg.topicsCount;
-    productCount = msg.productCount;
+    productCount = msg.productsCount;
+    alert( productCount)
+    
 let colors3 = []
 
 colors3 = ['#49A9EA', '#36CAAB', '#34495E', '#B370CF','#49A9EA', '#36CAAB', '#34495E', '#B370CF','#49A9EA', '#36CAAB', '#34495E', '#B370CF'];
@@ -131,25 +136,27 @@ var CallsPerTopicChart = new Chart(CallsPerTopicChartCanvas, {
         labels: topics,
     }
 });
+
 let CallsPerproductChartCanvas = document.getElementById("CallsPerproductChartCanvas").getContext('2d');
-var CallsPerproductChart = new Chart(CallsPerLanguageChartCanvas, {
+var CallsPerproductChart = new Chart(CallsPerproductChartCanvas, {
     type: 'doughnut',
     data: {
         datasets: [{
-            label: 'product',
-            data: langCount,
+            label: 'Products',
+            data: productCount,
             backgroundColor: colors.reverse()
         }],
-        labels: langs,
+        labels: products,
     }
 });
+
 }
 
 async function initSocket() {
     socket = io.connect("http://localhost:6062");
     socket.on("totalWaiting", (msg) => { updateTotalWaiting(msg);});
     socket.on("avgWaitTime", (msg) => { updateAvg(msg);});
-    socket.on("topicproduct", (msg) => { updateproductAndCallTopic(msg)});
+    socket.on("topicproduct", (msg) => { updateproductseAndCallTopic(msg)});
     socket.on('cityTopic', (msg) => { updateCityAndCallTopic(msg)});
     socket.on("totalWaitingCallsForAggregation", (msg) => {updateAggregationTable(msg.totalWaitList, msg.averageWaitList, msg.timeList);
                                                     updateAggregationChart(msg)});

@@ -9,13 +9,15 @@ ioServerRedis = io(6062);
 
 ioServerRedis.on('connection', function (socket) {
     socket.on("viewDash", (msg) => {
+        
         ioServerRedis.emit("viewDash", msg);
     });
     socket.on("totalWaitingCallsForAggregation", (msg) => {
         ioServerRedis.emit("totalWaitingCallsForAggregation", msg);
     });
-    socket.on("topicLang", (msg) => {
-        ioServerRedis.emit("topicLang", msg);
+    socket.on("topicproduct", (msg) => {
+      
+        ioServerRedis.emit("topicproduct", msg);
     });
     socket.on("cityTopic", (msg) => {
         ioServerRedis.emit("cityTopic", msg);
@@ -24,6 +26,7 @@ ioServerRedis.on('connection', function (socket) {
         ioServerRedis.emit("totalWaiting", msg);
     });
     socket.on("avgWaitTime", (msg) => {
+    
         ioServerRedis.emit("avgWaitTime", msg);
     });
 });

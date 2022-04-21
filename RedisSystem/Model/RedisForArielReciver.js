@@ -30,11 +30,14 @@ async function sendDashboardData(){
     var topicData = await getNumberOfCallsPerTopic();
     var topics = topicData[0];
     var callsPerTopic = topicData[1];
+    
     var callTopicAndproductChartData = {
+        
         topics : topics,
         topicsCount : callsPerTopic,
         products : products,
         productsCount : callPerproduct
+        
     };
     var callTopicAndCitiesChartData = {
         topics : topics,
@@ -42,6 +45,8 @@ async function sendDashboardData(){
         cities : cities,
         citiesCount : callsPerCity
     };
+   // console.log(callTopicAndproductChartData);
+   // console.log(productsData);
     var totalWaitingListForAggregation = await getTotalWaitingForAggregation();
     var averageWaitTimeListForAggregation = await getAverageWaitForAggregation();
     var timeListForAggregation = await getTimeForAggregation();
@@ -56,6 +61,7 @@ async function sendDashboardData(){
     ioClient.emit("totalWaiting",totalWaitingCalls);
     ioClient.emit("avgWaitTime", avgWaitTime);
 }
+
 
 async function getAverageWaitForAggregation(){
     let keys = await redisClient.keysAsync('waitTimeForAggregation-*');
@@ -116,13 +122,17 @@ async function getAverageWaitTime(){
 }
 
 async function getNumberOfCallsPerproduct(){
+    
     var prodArray = []
     for(prod in data.products)
         prodArray.push(data.products[prod].prodEng);
+       
     var countsprodArray = []
     for(prod in prodArray){
-        let response = await redisClient.getAsync('product-'+prodArray[prod]);
-        
+        let response = await redisClient.getAsync('prod-'+prodArray[prod]);
+        if(response == null) countsprodArray.push(0);
+        else countsprodArray.push(parseInt(response));
+    
     }
     return [prodArray, countsprodArray];
 }
@@ -149,6 +159,8 @@ async function getNumberOfCallsPerCity(){
         let response = await redisClient.getAsync('city-'+citiesArray[city]);
         if(response == null) countsCityArray.push(0);
         else countsCityArray.push(parseInt(response));
+       // console.log(citiesArray)
+       // console.log(countsCityArray)
     }
     return [citiesArray, countsCityArray];
 }
