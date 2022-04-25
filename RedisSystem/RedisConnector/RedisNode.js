@@ -1,6 +1,6 @@
 
 //------------ kafka------------
-const kafka = require('./../../kafka1/Kafka/KafkaConsumer');
+const kafka = require('../Kafka/KafkaConsumer');
 const redisReceiver = require('../Model/RedisForArielReciver');
 
 // websocket
@@ -31,7 +31,7 @@ ioServerRedis.on('connection', function (socket) {
     });
 });
 
-
+//console.log("Got new kafka message in RedsNode:")
 kafka.consumer.on('data', function(data) {
     //viewDash();
     console.log("Got new kafka message in RedsNode: ", data.value.toString());

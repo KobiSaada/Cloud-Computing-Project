@@ -1,0 +1,51 @@
+{
+  "name": "inventory",
+  "version": "1.0.0",
+  "description": "User system for inventory management of warehouses, management of employees in offices and their equipment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "server": "nodemon server",
+    "callCenterInputSystem": "npm start --prefix CallCenterInputSystem",
+    "mongoSystem": "npm start --prefix MongoSystem",
+    "redisSystem": "npm start --prefix RedisSystem",
+    "dev": "concurrently \"npm run server\" \"npm run callCenterInputSystem\" \"npm run mongoSystem\" \"npm run redisSystem\"",
+    "kill": "npx kill-port 3000 && npx kill-port 5002 && npx kill-port 6062 && npx kill-port 6663 && npx kill-port 6063 "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/motidahari/inventory.git"
+  },
+  "author": "Moti Dahari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/motidahari/inventory/issues"
+  },
+  "homepage": "https://github.com/motidahari/inventory#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "bcryptjs": "^2.4.3",
+    "socket.io": "^2.4.1",
+    "cors": "^2.8.5",
+    "dependencies": "^0.0.1",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.3",
+    "mysql": "github:mysqljs/mysql",
+    "mysql2": "^2.3.3",
+    "react-moment": "^1.1.2",
+    "react-redux": "^8.0.1",
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
+    "sequelize": "^6.15.1",
+    "uuid": "^8.3.2"
+  }
+}

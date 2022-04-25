@@ -14,8 +14,8 @@ const kafkaConf = {
   "debug": "generic,broker,security"
 };
 
-const prefix = "w1ypgbv4-";
-const topic = `${prefix}new`;
+//const prefix = "w1ypgbv4-";
+//const topic = `${prefix}new`;
 const producer = new Kafka.Producer(kafkaConf);
 
 const genMessage = m => new Buffer.alloc(m.length,m);
@@ -25,7 +25,7 @@ producer.on("ready", function(arg) {
 });
 producer.connect();
 
-module.exports.publish= function(msg)
+module.exports.publish= function(msg,topic)
 {   
   m=JSON.stringify(msg);
   producer.produce(topic, -1, genMessage(m), uuid.v4());

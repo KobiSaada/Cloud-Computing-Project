@@ -39,6 +39,43 @@
         <th>End</th>
     </tr>
 </table>
+<div id="form" style="display: none; width: 100%;  margin: auto; margin-top: 100px;">
+    <form onsubmit="submitForm(event)">
+        <div class="form-group">
+            <label for="id">id</label>
+            <input type="text" class="form-control" id="id" aria-describedby="id" placeholder="Enter id">
+          </div>
+          <div class="form-group">
+            <label for="firstName">firstName</label>
+            <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Enter firstName">
+          </div>
+          <div class="form-group">
+            <label for="lastName">lastName</label>
+            <input type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Enter lastName">
+          </div>
+          <div class="form-group">
+            <label for="ageFrom">age</label>
+            <input type="text" class="form-control" id="ageFrom" aria-describedby="ageFrom" placeholder="Enter age">
+          </div>
+          <div class="form-group">
+            <label for="address">address</label>
+            <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Enter address">
+          </div>
+          <div class="form-group">
+            <label for="genderFrom">gender</label>
+            <input type="text" class="form-control" id="genderFrom" aria-describedby="genderFrom" placeholder="Enter gender">
+          </div>
+          <div class="form-group">
+            <label for="birthday">birthday</label>
+            <input type="date" id="birthday" name="trip-start"
+                value="2022-01-01"
+                min="2022-01-01" max="2025-01-01">
+          </div>
+          <button type="button" onclick="submitForm()" class="btn btn-primary">Submit</button>
+
+      </form>
+</div>
+
 </body>
 
 </html>

@@ -48,11 +48,11 @@ var topics = [{
 ]
 
 var products = [{
-    prodEng: "Home Internet",
+    prodEng: "HomeInternet",
     prodHeb: "אינטרנט ביתי"
 },
 {
-    prodEng: "cable TV",
+    prodEng: "cableTV",
     prodHeb: "כבלים"
 },
 {
@@ -60,7 +60,7 @@ var products = [{
     prodHeb: "סלולרי"
 },
 {
-    prodEng: "Home Internet,cable TV,cellular",
+    prodEng: "All",
     prodHeb: "כולם"
 }
 

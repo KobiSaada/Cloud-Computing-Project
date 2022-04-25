@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bigml": "^1.25.2",
+    "jsonfile": "^6.1.0",
+    "mongocon": "^0.0.3",
+    "mongodb": "^4.5.0",
     "mongoose": "^5.10.5",
     "node-rdkafka": "^2.12.0",
     "nodemon": "^2.0.4",

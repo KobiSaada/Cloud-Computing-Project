@@ -118,11 +118,11 @@ async function updateproductseAndCallTopic(msg){
     topics = msg.topics;
     topicCount = msg.topicsCount;
     productCount = msg.productsCount;
-    alert( productCount)
+    //alert( productCount)
     
-let colors3 = []
+let colors = []
 
-colors3 = ['#49A9EA', '#36CAAB', '#34495E', '#B370CF','#49A9EA', '#36CAAB', '#34495E', '#B370CF','#49A9EA', '#36CAAB', '#34495E', '#B370CF'];
+colors = ['#49A9EA', '#36CAAB', '#34495E', '#B370CF','#49A9EA', '#36CAAB', '#34495E', '#B370CF','#49A9EA', '#36CAAB', '#34495E', '#B370CF'];
 
 let CallsPerTopicChartCanvas =document.getElementById("CallsPerTopicChartCanvas").getContext('2d');
 var CallsPerTopicChart = new Chart(CallsPerTopicChartCanvas, {
@@ -142,11 +142,11 @@ var CallsPerproductChart = new Chart(CallsPerproductChartCanvas, {
     type: 'doughnut',
     data: {
         datasets: [{
-            label: 'Products',
+            label: 'Product',
             data: productCount,
             backgroundColor: colors.reverse()
         }],
-        labels: products,
+        labels: product,
     }
 });
 
